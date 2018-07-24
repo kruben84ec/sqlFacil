@@ -39,8 +39,11 @@ BEGIN TRAN
 		 + CHAR(CAST((25 )*RAND() + 61 as INT))),
 		  (10 + CONVERT(INT, (30-10+1)*RAND()))
 	  );
-	  SELECT @numero, @alfanumerico, @i; 
+
+	  INSERT INTO procedimientoAlmacenado ( items , isb) VALUES ( @numero, @alfanumerico);
 	  SET @i=@i+1;
   END
 COMMIT TRAN
 GO
+
+select * from procedimientoAlmacenado;
